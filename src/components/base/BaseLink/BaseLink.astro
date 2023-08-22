@@ -1,0 +1,147 @@
+---
+import type { POLICIES, TARGETS, VARIATIONS } from "./types";
+
+interface Props {
+  class?: string;
+  href: string;
+  referrerpolicy?: POLICIES;
+  target?: TARGETS;
+  variation?: VARIATIONS;
+}
+
+let { class: classes, href, referrerpolicy, target, variation } = Astro.props;
+
+const dynamicClasses = [
+  "is-link",
+  classes,
+  variation ? `is-${variation}` : "is-link",
+];
+---
+
+{
+  href && variation && (
+    <a
+      class:list={dynamicClasses}
+      href={href}
+      referrerpolicy={referrerpolicy ?? "strict-origin-when-cross-origin"}
+      rel="noopener"
+      target={target ?? "_self"}
+    >
+      <slot />
+    </a>
+  )
+}
+
+<style>
+  .is-link,
+  .is-card {
+    @apply flex 
+    items-center
+    justify-evenly
+    gap-3
+    font-mono
+    text-black
+    hover:text-white;
+  }
+
+  .is-action,
+  .is-info,
+  .is-error,
+  .is-success,
+  .is-inactive {
+    @apply border-2
+    border-solid
+    px-3
+    py-3
+    font-mono
+    text-base;
+  }
+
+  .is-action,
+  .is-info,
+  .is-error,
+  .is-success,
+  .is-inactive,
+  .is-outside {
+    @apply min-w-[140px] rounded-lg;
+  }
+
+  .is-action,
+  .is-info,
+  .is-error,
+  .is-success,
+  .is-inactive,
+  .is-link {
+    @apply text-black
+    transition-all
+    ease-in-out;
+  }
+
+  .is-action,
+  .is-info,
+  .is-error,
+  .is-success {
+    @apply hover:bg-blue-400
+    hover:shadow-[4px_6px_4px_rgba(0,0,0,0.25)]
+    active:shadow-none;
+  }
+
+  .is-action,
+  .is-info {
+    @apply hover:border-black;
+  }
+
+  .is-action {
+    @apply border-black bg-blue-400;
+  }
+  
+  .is-info {
+    @apply border-black text-black;
+  }
+
+  .is-card {
+    @apply border-b border-solid;
+  }
+
+  .is-error {
+    @apply border-red-400 
+    bg-red-950
+    text-red-700;
+  }
+
+  .is-success {
+    @apply border-green-400
+    bg-green-950
+    text-green-500;
+  }
+
+  .is-inactive {
+    @apply cursor-not-allowed 
+    border-gray-600
+    bg-gray-700
+    text-gray-800;
+  }
+  .is-outside {
+    @apply cursor-pointer
+    border-none
+    bg-slate-400 
+    px-2 
+    py-3
+    font-mono
+    text-gray-600
+    hover:border-slate-500
+    hover:bg-slate-500
+    hover:text-gray-600;
+  }
+
+  @media (min-width: 480px) {
+    .is-action,
+    .is-info,
+    .is-error,
+    .is-success,
+    .is-inactive,
+    .is-outside {
+      @apply min-w-[172px] px-5;
+    }
+  }
+</style>

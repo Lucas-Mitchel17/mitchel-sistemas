@@ -1,0 +1,1 @@
+export { default as BaseHamburguer } from './BaseHamburguer.astro';

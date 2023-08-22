@@ -1,0 +1,33 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const dynamicClasses = [className];
+---
+
+<div class:list={["base-card", dynamicClasses]}>
+  <slot />
+</div>
+
+<style>
+  .base-card {
+    @apply flex 
+    min-h-[130px]
+    min-w-[130px]
+    max-w-[290px]
+    max-h-[290px]
+    flex-col 
+    items-center
+    justify-center 
+    rounded-[15px]
+    border-2
+    border-solid
+    border-black
+    bg-gray-400
+    p-5;
+    box-shadow: 6px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+</style>

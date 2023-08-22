@@ -1,0 +1,63 @@
+---
+import { BaseLink } from "@BaseComponents";
+import { BaseLinkProps } from "@Types";
+
+interface Link {
+  label: string;
+  href: string;
+}
+
+export interface Props {
+  class?: string;
+  variation?: string;
+  links: Link[];
+}
+
+const { class: className, variation, links } = Astro.props;
+
+const dynamicClasses = [className, variation ? `is-${variation}` : ""];
+---
+
+<ul class:list={[dynamicClasses]}>
+  {
+    links.map(({ href, label }) => (
+      <li class="link">
+        <BaseLink variation={BaseLinkProps.VARIATIONS.LINK} href={href}>
+          {label}
+        </BaseLink>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .is-desktop-links-container,
+  .is-mobile-links-container {
+    @apply flex flex-col;
+  }
+
+  .link {
+    @apply mb-10 
+    text-center  
+    transition-all
+    flex
+    ease-in-out;
+  }
+
+  @media (min-width: 1024px) {
+    .is-desktop-links-container {
+      @apply flex-row gap-16;
+    }
+
+    .link {
+      @apply mb-0;
+    }
+  }
+
+  @media (max-height: 420px) {
+    .is-desktop-links-container,
+    .is-mobile-links-container {
+      @apply flex flex-row gap-10;
+    }
+  }
+</style>

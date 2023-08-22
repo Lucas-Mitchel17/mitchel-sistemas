@@ -1,0 +1,116 @@
+---
+import { TAGS, VARIATIONS } from './types';
+
+export interface Props {
+  class?: string;
+  variation?: VARIATIONS;
+  tag?: TAGS;
+}
+
+const { class: className, tag, variation } = Astro.props;
+
+const dynamicClasses = [
+  `${tag}`,
+  className,
+  `is-${variation}`,
+];
+---
+
+{
+  tag === TAGS.P ? (
+    <p class:list={dynamicClasses}>
+      <slot />
+    </p>
+  ) : tag === TAGS.H2 ? (
+    <h2 class:list={dynamicClasses}>
+      <slot />
+    </h2>
+  ) : tag === TAGS.H3 ? (
+    <h3 class:list={dynamicClasses}>
+      <slot />
+    </h3>
+  ) : tag === TAGS.SPAN ? (
+    <span class:list={dynamicClasses}>
+      <slot />
+    </span>
+  ) : tag === TAGS.H1 ? (
+    <h1 class:list={dynamicClasses}>
+      <slot />
+    </h1>
+  ) : (
+    <p class:list={dynamicClasses}>
+      <slot />
+    </p>
+  )
+}
+
+<style>
+  .h1,
+  .h2,
+  .h3,
+  .p,
+  .span {
+    @apply text-black;
+  }
+
+  .h1,
+  .h2,
+  .h3 {
+    @apply font-mono font-semibold;
+  }
+
+  .h1 {
+    @apply text-4xl;
+  }
+
+  .h2 {
+    @apply text-2xl;
+  }
+
+  .h3 {
+    @apply text-xl;
+  }
+
+  .p,
+  .span {
+    @apply font-mono;
+  }
+
+  .p {
+    @apply font-mono;
+  }
+
+  .span {
+    @apply font-mono font-semibold;
+  }
+
+  .is-highlight {
+    @apply text-green-600;
+  }
+
+  .is-error {
+    @apply text-red-600;
+  }
+
+  .is-inactive {
+    @apply text-gray-500;
+  }
+
+  .is-success {
+    @apply text-green-600;
+  }
+
+  .is-contrast {
+    @apply text-purple-600;
+  }
+
+  @media (min-width: 768px) {
+    .h1 {
+      @apply text-6xl leading-tight;
+    }
+
+    .h2 {
+      @apply text-4xl
+    }
+  }
+</style>

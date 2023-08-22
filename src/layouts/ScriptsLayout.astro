@@ -1,0 +1,73 @@
+<!-- IntersectionObserverAPI -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  });
+
+  const hiddenElements = document.querySelectorAll('.item-fade');
+  const hiddenElementsLeft = document.querySelectorAll('.item-slide-left');
+  const hiddenElementsRight = document.querySelectorAll('.item-slide-right');
+  const hiddenElementsUp = document.querySelectorAll('.item-slide-up');
+  
+  hiddenElements.forEach((el) => observer.observe(el));
+  hiddenElementsLeft.forEach((el) => observer.observe(el));
+  hiddenElementsRight.forEach((el) => observer.observe(el));
+  hiddenElementsUp.forEach((el) => observer.observe(el));
+</script>
+<!-- IntersectionObserverAPI -->
+
+<!-- TheNavBar -->
+<script>
+  const isNavBar = document.querySelector('.isNavBar');
+  const hamburger = document.querySelector('.hamburger');
+  
+  if (isNavBar) {
+    const toggle = document.querySelector('.js-toggle-navbar');
+  
+    toggle?.addEventListener('click', () => toggleNavbar());
+  
+    function toggleNavbar() {
+      const nav = document.querySelector('.nav-container');
+  
+      if (nav) {
+        const isEntering = !nav.classList.contains('is-slide');
+        const composedLinks = document.querySelectorAll('.composed-links a');
+  
+        composedLinks.forEach((link) => {
+          link.addEventListener('click', () => {
+            toggleNavbar();
+            hamburger.classList.remove('active');
+          });
+        });
+        
+        if (isEntering) {
+          nav.classList.remove('is-invisible');
+          nav.classList.toggle('is-slide');
+  
+          setTimeout(() => {
+            nav.classList.toggle('is-mobile');
+          }, 200);
+          return;
+        }
+  
+        nav.classList.toggle('is-invisible');
+  
+        setTimeout(() => {
+          nav.classList.toggle('is-mobile');
+          nav.classList.toggle('is-slide');
+        }, 300);
+      }
+    }
+  }
+  
+  hamburger?.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+  });
+  </script>
+  <!-- TheNavBar -->

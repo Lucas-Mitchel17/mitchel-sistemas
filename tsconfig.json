@@ -1,0 +1,21 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@Layouts": ["src/layouts"],
+      "@Assets": ["src/assets"],
+      "@Sections": ["src/sections"],
+      "@BaseComponents": ["src/components/base"],
+      "@ComposedComponents": ["src/components/composed"],
+      "@UniqueComponents": ["src/components/unique"],
+      "@Types": ["src/types/"]
+    }
+  }
+}
