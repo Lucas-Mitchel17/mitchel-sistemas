@@ -44,6 +44,27 @@ const dynamicClasses = [
     hover:text-white;
   }
 
+  .is-topnav {
+    @apply
+    bg-gradient-to-r from-light-green to-main-green
+    relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .is-topnav::after {
+    @apply
+    content-['']
+    absolute
+    bg-gradient-to-r from-light-green to-main-green
+    h-0
+    w-0
+    bottom-0;
+    transition: 0.3s
+  }
+  .is-topnav:hover:after {
+    @apply h-[1px] w-full
+  }
+
   .is-action,
   .is-info,
   .is-error,
@@ -51,8 +72,8 @@ const dynamicClasses = [
   .is-inactive {
     @apply border-2
     border-solid
-    px-3
-    py-3
+    px-1.5
+    py-1.5
     font-mono
     text-base;
   }
@@ -92,7 +113,13 @@ const dynamicClasses = [
   }
 
   .is-action {
-    @apply border-black bg-blue-400;
+    @apply
+    border-main-green
+    bg-gradient-to-r from-main-green to-light-green
+    text-dark-blue
+
+    hover:text-dark-blue
+    hover:border-dark-blue;
   }
   
   .is-info {

@@ -21,6 +21,7 @@ enum VARIATIONS {
   SUCCESS = 'success',
   OUTSIDE = 'outside',
   CARD = 'card',
+  TOPNAV = 'topnav',
 }
 
 const BaseLinkProps = {

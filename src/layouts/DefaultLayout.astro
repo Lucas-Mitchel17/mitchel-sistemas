@@ -13,7 +13,7 @@ const { lang, title, description } = Astro.props;
 
 const props = {
   lang: lang ?? "pt-BR",
-  title: title ?? "Meta Title do seu Site Aqui",
+  title: title ?? "Mitchel Sistemas | Conectando Soluções",
   description:
     description ??
     "Meta Description do seu site AQUI",
@@ -29,6 +29,7 @@ const props = {
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="description" content={props.description} />
     <meta name="generator" content={Astro.generator} />
+
     <title>{props.title}</title>
 
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.ico" />
@@ -107,7 +108,7 @@ const props = {
       name="msapplication-TileImage"
       content="/favicon/ms-icon-144x144.png"
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#080c1c" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
