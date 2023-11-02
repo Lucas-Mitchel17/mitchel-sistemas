@@ -50,13 +50,7 @@ const dynamicClasses = [
   .h3,
   .p,
   .span {
-    @apply text-black;
-  }
-
-  .h1,
-  .h2,
-  .h3 {
-    @apply font-mono font-semibold;
+    @apply text-white ;
   }
 
   .h1 {
@@ -71,21 +65,15 @@ const dynamicClasses = [
     @apply text-xl;
   }
 
-  .p,
-  .span {
-    @apply font-mono;
+  .is-gradient {
+    @apply
+    bg-gradient-to-r from-light-green to-main-green
+    relative;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-
-  .p {
-    @apply font-mono;
-  }
-
-  .span {
-    @apply font-mono font-semibold;
-  }
-
   .is-highlight {
-    @apply text-green-600;
+    @apply text-main-green;
   }
 
   .is-error {

@@ -1,8 +1,52 @@
 ---
+import { SectionsLayout } from "@Layouts";
 import { BaseLink, BaseText, BaseCard } from "@BaseComponents";
 import { BaseLinkProps, BaseTextTypes } from "@Types";
+import { LinesVideo } from "@Assets";
 ---
 
-<BaseLink href="/" variation={BaseLinkProps.VARIATIONS.ACTION}>
-  MEU BOTAO
-</BaseLink>
+<video autoplay muted loop class="video-bg">
+  <source src={LinesVideo} type="video/mp4">
+</video>
+
+<SectionsLayout class="home-hero is-full-width">
+  <div class="hero-content">
+
+    <BaseText
+      tag={BaseTextTypes.TAGS.H1}
+      class="hero-title"
+    >
+      Soluções Tecnológicas<br>
+      <span class="is-text-gradient">Resultados Reais</span>
+    </BaseText>
+
+    <BaseText
+      tag={BaseTextTypes.TAGS.P}
+      class="hero-paragraph"
+    >
+      Na busca por soluções tecnológicas que entregam resultados reais?
+       Estamos aqui para transformar sua visão em ação. Entre em contato hoje e dê o primeiro passo rumo à inovação digital.
+    </BaseText>
+
+  </div>
+</SectionsLayout>
+
+<style scoped>
+.video-bg {
+  @apply h-screen absolute top-0 left-[6px] z-0 object-cover
+}
+.home-hero {
+  @apply relative overflow-hidden h-screen w-screen bg-dark-blue-fade
+}
+
+.hero-content {
+  @apply px-14 flex flex-col justify-center items-center gap-5 h-full
+}
+.hero-title {
+  @apply text-center
+}
+.hero-paragraph {
+  @apply max-w-5xl text-center 
+} 
+
+</style>

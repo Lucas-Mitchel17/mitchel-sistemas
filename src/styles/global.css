@@ -85,6 +85,7 @@ video {
   scroll-behavior: smooth;
   vertical-align: baseline;
   user-select: none;
+  font-family: "Orbitron", sans-serif;
 }
 article,
 aside,
@@ -112,7 +113,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -148,4 +149,14 @@ table {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
+}
+.is-text-gradient {
+  position: relative;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  --tw-gradient-from: #38f8d4 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(56 248 212 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: #43ea80 var(--tw-gradient-to-position);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

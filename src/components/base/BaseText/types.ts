@@ -12,6 +12,7 @@ enum VARIATIONS {
   HIGH = 'highlight',
   INACTIVE = 'inactive',
   SUCCESS = 'success',
+  GRADIENT = 'gradient'
 }
 
 const BaseTextTypes = {
