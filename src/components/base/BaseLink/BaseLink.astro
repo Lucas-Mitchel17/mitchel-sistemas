@@ -91,7 +91,7 @@ const dynamicClasses = [
   .is-success,
   .is-inactive,
   .is-link {
-    @apply text-black
+    @apply
     transition-all
     ease-in-out;
   }
@@ -104,21 +104,25 @@ const dynamicClasses = [
     hover:shadow-[0px_0px_35px_#43ea80bd]
     active:shadow-none;
   }
+  .is-info {
+    @apply
+    border-main-green
+    bg-dark-blue
+    text-main-green
 
-  .is-action,
-  .is-info {}
+    hover:bg-main-green
+    hover:text-dark-blue
+  }
 
   .is-action {
     @apply
     border-main-green
-    bg-gradient-to-r from-main-green to-light-green
+    bg-main-green
     text-dark-blue
 
-    hover:text-dark-blue
-  }
-  
-  .is-info {
-    @apply border-black text-black;
+    hover:text-main-green
+    hover:bg-dark-blue
+    hover:border-main-green
   }
 
   .is-card {
