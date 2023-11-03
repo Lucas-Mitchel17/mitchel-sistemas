@@ -24,10 +24,25 @@ import { LinesVideo } from "@Assets";
       tag={BaseTextTypes.TAGS.P}
       class="hero-paragraph"
     >
-      Na busca por soluções tecnológicas que entregam resultados reais?
-       Estamos aqui para transformar sua visão em ação. Entre em contato hoje e dê o primeiro passo rumo à inovação digital.
+      Na busca por <span class="is-text-gradient">soluções tecnológicas</span> que entregam resultados reais?
+      Estamos aqui para transformar a <span class="is-text-gradient">sua visão</span> em ação. Entre em contato hoje e dê o primeiro passo rumo à <span class="is-text-gradient">inovação digital</span>.
     </BaseText>
 
+    <div class="get-in-touch">
+      <BaseLink
+        href="https://wa.me/5531987698188"
+        variation={BaseLinkProps.VARIATIONS.ACTION}
+      >
+        Entre em contato
+      </BaseLink>
+
+      <BaseLink
+        href="#servicos"
+        variation={BaseLinkProps.VARIATIONS.INFO}
+      >
+        Quero conhecer mais
+      </BaseLink>
+    </div>
   </div>
 </SectionsLayout>
 
@@ -40,13 +55,16 @@ import { LinesVideo } from "@Assets";
 }
 
 .hero-content {
-  @apply px-14 flex flex-col justify-center items-center gap-5 h-full
+  @apply md:px-14 flex flex-col justify-center items-center gap-10 sm:gap-5 h-full
 }
 .hero-title {
   @apply text-center
 }
 .hero-paragraph {
-  @apply max-w-5xl text-center 
-} 
+  @apply mt-4 max-w-7xl text-center text-lg md:text-xl tracking-wider
+}
+.get-in-touch {
+  @apply mt-8 flex flex-col sm:flex-row gap-4 sm:gap-10
+}
 
 </style>
