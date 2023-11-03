@@ -85,7 +85,7 @@ video {
   scroll-behavior: smooth;
   vertical-align: baseline;
   user-select: none;
-  font-family: "Orbitron", sans-serif;
+  font-family: "Play", sans-serif;
 }
 article,
 aside,
@@ -119,6 +119,13 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+body::-webkit-scrollbar {
+  width: 3px;
+  background-color: var(--dark-blue);
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--main-green);
 }
 .item-fade,
 .item-slide-left,
@@ -159,4 +166,8 @@ table {
   --tw-gradient-to: #43ea80 var(--tw-gradient-to-position);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.container {
+  margin: auto;
+  padding: 0 20px;
 }
