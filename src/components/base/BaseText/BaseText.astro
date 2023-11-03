@@ -52,7 +52,9 @@ const dynamicClasses = [
   .span {
     @apply text-white ;
   }
-
+  .h1, .h2, .h3 {
+   @apply font-orbitron 
+  }
   .h1 {
     @apply text-4xl;
   }
@@ -90,6 +92,10 @@ const dynamicClasses = [
 
   .is-contrast {
     @apply text-purple-600;
+  }
+
+  .is-paragraph {
+    @apply text-base sm:text-lg tracking-wider
   }
 
   @media (min-width: 768px) {

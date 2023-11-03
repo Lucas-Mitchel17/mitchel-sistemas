@@ -10,6 +10,10 @@ module.exports = {
         "dark-blue-fade": "#080c1cad",
       },
     },
+    fontFamily: {
+      orbitron: "orbitron",
+      play: "play",
+    },
   },
   plugins: [],
 };
