@@ -1,70 +1,58 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { SectionsLayout } from "@Layouts";
+import { SectionsLayout, TextImageSectionLayout } from "@Layouts";
 import { BaseText, BaseTextTypes } from "@BaseComponents";
-import { SitesPC } from '@Assets';
+import { SitesPC, Apps, SEO, Support } from '@Assets';
 
+const section = [
+  {
+    image: SitesPC,
+    alt: "Ilustração de três pessoas participando na criação de um site.",
+    title: "Desenvolvimento de Sites Personalizados",
+    paragraph: "Nossos sites são feitos sob medida para atender às necessidades específicas de cada cliente. Utilizamos tecnologias e ferramentas avançadas, como AstroJs, VueJs e WordPress, para criar experiências online impressionantes e funcionais.",
+    imageSide: "is-left-image",
+  },
+  {
+    image: Apps,
+    alt: "Ilustração animada de uma pessoa analisando um app em um celular.",
+    title: "Aplicativos sob Medida",
+    paragraph: "Ajudamos a transformar suas ideias em aplicativos inovadores que cativam seu público. Com um foco na usabilidade e desempenho, nossos aplicativos oferecem resultados tangíveis.",
+    imageSide: "is-right-image",
+  },
+  {
+    image: SEO,
+    alt: "Ilustração animada de uma três pessoas analisando o design e a performance de um site.",
+    title: "Design Elegante, Responsivo, Funcional e Otimizado para SEO",
+    paragraph: "Na Mitchel Sistemas, nosso design não é apenas visualmente cativante, mas também altamente funcional, proporcionando uma experiência excepcional em todos os dispositivos. Além disso, otimizamos o desempenho para carregamento rápido e navegação suave. Priorizamos o SEO em nossos projetos, garantindo que seu site ou aplicativo se destaque nos resultados de busca, alcançando um público mais amplo.",
+    imageSide: "is-left-image",
+  },
+  {
+    image: Support,
+    alt: "Ilustração animada de uma pessoa analisando um app em um celular.",
+    title: "Manutenção e Suporte",
+    paragraph: "Não terminamos quando o projeto é entregue. Oferecemos serviços contínuos de manutenção e suporte para garantir que seu site ou aplicativo continue funcionando com eficiência.",
+    imageSide: "is-right-image",
+  },
+
+]
 ---
-<SectionsLayout class="services">
-  <div class="container left-image-section">
-    <div class="services-images">
-      <Image
-          alt="Imagem de vários tipos de dispositvos com sites personalizados."
-          class="image"
-          title="Sites Personalizados"
-          src={SitesPC}
-        />
-    </div>
-
-    <div class="services-descriptions">
-      <BaseText
-        tag={BaseTextTypes.TAGS.H2}
-        class="service-title"
-        variation={BaseTextTypes.VARIATIONS.GRADIENT}
-      >
-        Desenvolvimento de Sites Personalizados
-      </BaseText>
-
-      <BaseText
-        tag={BaseTextTypes.TAGS.P}
-        class="service-description"
-        variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
-      >
-        Nossos sites são feitos sob medida para atender às necessidades
-        específicas de cada cliente. Utilizamos tecnologias e ferramentas avançadas,
-        como AstroJs, VueJs e WordPress, para criar experiências online
-        impressionantes e funcionais.
-      </BaseText>
-
-    </div>
-  </div>
-</SectionsLayout>
-
+<section class="services-section">
+  {section.map((item) => (
+    <TextImageSectionLayout
+      title={item.title}
+      paragraph={item.paragraph}
+      imageSide={item.imageSide}
+    >
+      <Image class="image" src={item.image} alt={item.alt} />
+    </TextImageSectionLayout>
+  ))}
+</section>
 <style scoped>
-.services {
-  @apply bg-dark-blue
+.services-section {
+  @apply bg-gradient-to-b from-fade-black via-dark-blue to-fade-black
 }
-.left-image-section {
-  @apply flex flex-col lg:flex-row items-center justify-center
-}
-
-.services-images {
-  @apply w-max lg:w-1/3
-}
-
-.services-descriptions {
-  @apply w-full lg:w-2/3
-}
-
 .image {
   @apply max-w-md w-full
 }
 
-.service-title {
-  @apply text-center lg:text-left
-}
-
-.service-description {
-  @apply mt-8 text-center lg:text-left
-}
 </style>

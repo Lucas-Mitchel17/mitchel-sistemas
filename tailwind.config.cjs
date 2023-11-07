@@ -8,6 +8,7 @@ module.exports = {
         "light-green": "#38f8d4",
         "dark-blue": "#080c1c",
         "dark-blue-fade": "#080c1cad",
+        "fade-black": "#050813",
       },
     },
     fontFamily: {

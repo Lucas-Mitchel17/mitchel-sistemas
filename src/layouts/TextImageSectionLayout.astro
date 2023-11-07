@@ -1,0 +1,75 @@
+---
+import { SectionsLayout } from "@Layouts";
+import { BaseText, BaseTextTypes } from "@BaseComponents";
+
+
+export interface Props {
+  class?: string;
+  variation?: string;
+  title?: string;
+  paragraph?: string;
+  imageSide?: string;
+}
+
+const { class: className, variation, imageSide, title, paragraph } = Astro.props;
+
+const dynamicClasses = ['container', className, variation ? `is-${variation}` : ""];
+---
+<SectionsLayout class="services">
+  <div class:list={[dynamicClasses, imageSide]}>
+    <div class="services-images">
+      <slot />
+    </div>
+
+    <div class="services-descriptions">
+      <BaseText
+        tag={BaseTextTypes.TAGS.H2}
+        class="service-title"
+        variation={BaseTextTypes.VARIATIONS.GRADIENT}
+      >
+        { title }
+      </BaseText>
+
+      <BaseText
+        tag={BaseTextTypes.TAGS.P}
+        class="service-description"
+        variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
+      >
+        { paragraph }
+      </BaseText>
+
+    </div>
+  </div>
+</SectionsLayout>
+
+<style scoped>
+.services {
+  @apply pt-20 pb-5
+}
+.is-left-image {
+  @apply flex flex-col lg:flex-row items-center justify-center
+}
+
+.is-right-image {
+  @apply flex flex-col lg:flex-row-reverse items-center justify-center
+}
+
+.services-images {
+  @apply w-max lg:w-1/3
+}
+
+.services-descriptions {
+  @apply w-full lg:w-2/3
+}
+
+.service-title {
+  @apply text-center lg:text-left
+}
+
+.service-description {
+  @apply mt-8 text-center lg:text-left
+}
+
+.is-left-image .service-title,
+.is-left-image .service-description { @apply lg:text-right }
+</style>
