@@ -1,0 +1,96 @@
+---
+import { Image } from "@astrojs/image/components";
+import { TextImageSectionLayout } from "@Layouts";
+import { BaseText, BaseTextTypes, BaseLink, BaseLinkProps } from "@BaseComponents";
+import { Tecnofit, Fitore, Precare } from '@Assets';
+
+const section = [
+  {
+    image: Tecnofit,
+    alt: "Foto da página inicial do site tecnofit.com.br",
+    title: "Tecnofit",
+    paragraph: "Este website destaca-se por seu tema personalizado em WordPress, um trabalho meticuloso realizado para proporcionar uma experiência única. A implementação do plugin LazyBlocks permitiu a criação de um template desenvolvido de forma artesanal. O diferencial reside na capacidade do cliente de editar facilmente o conteúdo diretamente no editor. Optou-se pela reutilização inteligente de componentes, garantindo não apenas uma estética consistente, mas também uma performance otimizada para uma navegação ágil. O uso de HTML semântico e boas práticas faz parte da base sólida desse incrível website.",
+    imageSide: "is-left-image",
+    btnLink: "https://www.tecnofit.com.br/"
+  },
+  {
+    image: Precare,
+    alt: "Foto da página inicial do site precare.ca",
+    title: "Precare CA",
+    paragraph: "O website foi desenvolvido com WordPress, utilizando o page builder Oxygen e plugins como ACF e CPT UI para a eficiente organização dos tipos de posts. O foco do desenvolvimento esteve na otimização da performance SEO e na velocidade de carregamento. Uma transformação notável é evidenciada pelo aumento do SEO Score de 65 na versão anterior para 100 na nova versão do site. Destacamos a elaboração manual da página 'Healthcare Guides' no backend com PHP e no frontend com JQuery, proporcionando uma experiência única. A dinâmica de carregamento de posts, ativada pelo clique no menu ou no próprio post, revela um cuidado especial com a interatividade. Além disso, a funcionalidade de armazenamento local (localStorage) mantém o último item clicado, aprimorando a navegabilidade.",
+    imageSide: "is-right-image",
+    btnLink: "https://precare.ca/"
+  },
+  {
+    image: Fitore,
+    alt: "Foto da página inicial do site Fitore arquitetura",
+    title: "Fitore Arquitetura",
+    paragraph: "Desenvolvemos um site institucional sob medida para uma renomada empresa de arquitetura, visando apresentar de forma envolvente todo o seu portfólio enquanto garantíamos uma presença destacada nos resultados de busca. Para alcançar esses objetivos, priorizamos tanto a performance quanto o SEO. Optamos por adotar o framework Gridsome, alinhado ao conceito de JAM stack, proporcionando uma base sólida para uma experiência online eficiente. A construção das páginas foi alimentada por uma camada GraphQL, resultando em uma build final de páginas estáticas que são posteriormente hidratadas com conteúdo específico através do VueJS.",
+    imageSide: "is-left-image",
+    btnLink: "https://fitore-arquitetura.vercel.app/"
+  },
+
+]
+---
+<section class="projects-section">
+  <div class="px-6 mb-10">
+    <BaseText
+      tag={BaseTextTypes.TAGS.H1}
+      class="pt-[200px] text-center"
+      variation={BaseTextTypes.VARIATIONS.GRADIENT}
+    >
+      Nossos Projetos
+    </BaseText>
+  
+    <BaseText
+      tag={BaseTextTypes.TAGS.P}
+      class="projects-section-paragraph"
+      variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
+    >
+      Da concepção à execução, nossas <span class="is-text-gradient">soluções digitais</span> estão
+      moldando o futuro online. Descubra como podemos fazer o mesmo por você.
+    </BaseText>
+  </div>
+
+  {section.map((item) => (
+    <TextImageSectionLayout
+      class="is-project-section mt-11"
+      title={item.title}
+      paragraph={item.paragraph}
+      imageSide={item.imageSide}
+    >
+      <Image class="image" src={item.image} alt={item.alt} />
+
+      <BaseLink
+        slot="button"
+        class="project-btn"
+        href={item.btnLink}
+        variation={BaseLinkProps.VARIATIONS.ACTION}
+        target={BaseLinkProps.TARGETS.BLANK}        
+      >
+        Acessar o site
+      </BaseLink>
+    </TextImageSectionLayout>
+  ))}
+</section>
+
+<style scoped>
+.projects-section {
+  @apply 
+  bg-gradient-to-b from-fade-black via-dark-blue to-fade-black
+  pb-24
+  w-screen;
+}
+.projects-section-paragraph {
+  @apply text-center max-w-[1000px] w-full mx-auto pt-6 px-5;
+}
+.image {
+  @apply max-w-full w-full rounded-md object-cover;
+}
+
+.is-right-image .project-btn { @apply ml-0; }
+.project-btn {
+  @apply mt-8 w-fit ml-auto;
+}
+
+</style>

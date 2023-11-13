@@ -5,3 +5,6 @@ export { default as LinesVideo } from './Lines.mp4';
 export { default as Apps } from './Apps.svg';
 export { default as SEO } from './SEO.svg';
 export { default as Support } from './Support.svg';
+export { default as Tecnofit } from './Tecnofit.webp';
+export { default as Precare } from './Precare.webp';
+export { default as Fitore } from './Fitore.webp';
