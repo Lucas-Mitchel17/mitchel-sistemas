@@ -60,11 +60,11 @@ const dynamicClasses = [
   }
 
   .h2 {
-    @apply text-2xl;
+    @apply text-4xl sm:text-[2.75rem];
   }
 
   .h3 {
-    @apply text-xl;
+    @apply text-2xl sm:text-3xl;
   }
 
   .is-gradient {
@@ -95,16 +95,12 @@ const dynamicClasses = [
   }
 
   .is-paragraph {
-    @apply text-base sm:text-lg tracking-wider
+    @apply text-xl  tracking-wider
   }
 
   @media (min-width: 768px) {
     .h1 {
       @apply text-6xl leading-tight;
-    }
-
-    .h2 {
-      @apply text-4xl
     }
   }
 </style>
