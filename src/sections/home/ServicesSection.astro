@@ -1,6 +1,6 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { SectionsLayout, TextImageSectionLayout } from "@Layouts";
+import { TextImageSectionLayout } from "@Layouts";
 import { BaseText, BaseTextTypes } from "@BaseComponents";
 import { SitesPC, Apps, SEO, Support } from '@Assets';
 
@@ -22,7 +22,7 @@ const section = [
   {
     image: SEO,
     alt: "Ilustração animada de uma três pessoas analisando o design e a performance de um site.",
-    title: "Design Elegante, Responsivo, Funcional e Otimizado para SEO",
+    title: "Design Elegante, Responsivo e Otimizado para SEO",
     paragraph: "Na Mitchel Sistemas, nosso design não é apenas visualmente cativante, mas também altamente funcional, proporcionando uma experiência excepcional em todos os dispositivos. Além disso, otimizamos o desempenho para carregamento rápido e navegação suave. Priorizamos o SEO em nossos projetos, garantindo que seu site ou aplicativo se destaque nos resultados de busca, alcançando um público mais amplo.",
     imageSide: "is-left-image",
   },
@@ -37,6 +37,27 @@ const section = [
 ]
 ---
 <section class="services-section">
+  <div class="px-6">
+    <BaseText
+      tag={BaseTextTypes.TAGS.H2}
+      class="pt-24 text-center"
+      variation={BaseTextTypes.VARIATIONS.GRADIENT}
+    >
+      Nossos Serviços
+    </BaseText>
+  
+    <BaseText
+      tag={BaseTextTypes.TAGS.P}
+      class="services-section-paragraph"
+      variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
+    >
+      Na Mitchel Sistemas, oferecemos uma gama abrangente de serviços
+      de desenvolvimento de sites e softwares, cada um projetado para
+      impulsionar sua presença digital e levar seus projetos ao próximo nível.
+      Oferecemos serviços como:
+    </BaseText>
+  </div>
+
   {section.map((item) => (
     <TextImageSectionLayout
       title={item.title}
@@ -49,7 +70,12 @@ const section = [
 </section>
 <style scoped>
 .services-section {
-  @apply bg-gradient-to-b from-fade-black via-dark-blue to-fade-black
+  @apply 
+  bg-gradient-to-b from-fade-black via-dark-blue to-fade-black
+  pb-12
+}
+.services-section-paragraph {
+  @apply text-center max-w-[1000px] w-full mx-auto pt-6 px-5
 }
 .image {
   @apply max-w-md w-full

@@ -23,7 +23,7 @@ const dynamicClasses = ['container', className, variation ? `is-${variation}` : 
 
     <div class="services-descriptions">
       <BaseText
-        tag={BaseTextTypes.TAGS.H2}
+        tag={BaseTextTypes.TAGS.H3}
         class="service-title"
         variation={BaseTextTypes.VARIATIONS.GRADIENT}
       >
@@ -37,6 +37,8 @@ const dynamicClasses = ['container', className, variation ? `is-${variation}` : 
       >
         { paragraph }
       </BaseText>
+      
+      <slot name="button" />
 
     </div>
   </div>
@@ -54,22 +56,23 @@ const dynamicClasses = ['container', className, variation ? `is-${variation}` : 
   @apply flex flex-col lg:flex-row-reverse items-center justify-center
 }
 
-.services-images {
-  @apply w-max lg:w-1/3
-}
+.services-images { @apply w-max lg:w-1/3 }
 
-.services-descriptions {
-  @apply w-full lg:w-2/3
-}
+.services-descriptions { @apply w-full lg:w-2/3 }
 
 .service-title {
   @apply text-center lg:text-left
 }
 
 .service-description {
-  @apply mt-8 text-center lg:text-left
+  @apply mt-8 text-center lg:text-left;
 }
 
+.is-right-image .service-description { @apply pr-6 }
 .is-left-image .service-title,
-.is-left-image .service-description { @apply lg:text-right }
+.is-left-image .service-description { @apply lg:text-right pl-6; }
+
+.is-project-section .services-images { @apply w-max lg:w-2/4 }
+.is-project-section .services-descriptions { @apply w-full lg:w-2/4 }
+
 </style>
