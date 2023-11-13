@@ -36,7 +36,7 @@ const section = [
 
 ]
 ---
-<section class="services-section">
+<section class="services-section" id="services">
   <div class="px-6">
     <BaseText
       tag={BaseTextTypes.TAGS.H2}
@@ -60,14 +60,18 @@ const section = [
 
   {section.map((item) => (
     <TextImageSectionLayout
+      class="border-divider"
       title={item.title}
       paragraph={item.paragraph}
       imageSide={item.imageSide}
     >
       <Image class="image" src={item.image} alt={item.alt} />
+
+      <hr slot="divider" class="divider container"></hr>
     </TextImageSectionLayout>
   ))}
 </section>
+
 <style scoped>
 .services-section {
   @apply 
@@ -79,6 +83,10 @@ const section = [
 }
 .image {
   @apply max-w-md w-full
+}
+
+.divider {
+  @apply h-[1px] bg-light-green
 }
 
 </style>
