@@ -67,7 +67,7 @@ const section = [
     >
       <Image class="image" src={item.image} alt={item.alt} />
 
-      <hr slot="divider" class="divider container"></hr>
+      <hr slot="divider" class="divider"></hr>
     </TextImageSectionLayout>
   ))}
 </section>
@@ -86,7 +86,15 @@ const section = [
 }
 
 .divider {
-  @apply h-[1px] bg-light-green
+  @apply h-[1px] bg-light-green mx-auto;
+  max-width: calc(100% - 40px);
+}
+
+@media (min-width: 1536px) {
+  .divider {
+    max-width: 1496px;
+    width: 100%;
+  } 
 }
 
 </style>
