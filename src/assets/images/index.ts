@@ -8,3 +8,4 @@ export { default as Support } from './Support.svg';
 export { default as Tecnofit } from './Tecnofit.webp';
 export { default as Precare } from './Precare.webp';
 export { default as Fitore } from './Fitore.webp';
+export { default as Contact } from './Contact.svg';
