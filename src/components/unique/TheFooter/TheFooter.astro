@@ -169,7 +169,7 @@ const footerItems2 = [
     gap-24
     border-y 
     border-solid 
-    border-red-500
+    border-light-green
     pt-10;
   }
 
@@ -178,7 +178,7 @@ const footerItems2 = [
   }
 
   .logo {
-    @apply mb-10 w-[200px];
+    @apply mb-10 w-[300px];
   }
 
   .container-content {
@@ -206,9 +206,15 @@ const footerItems2 = [
   .button-icon-linkedin {
     @apply w-5;
   }
-  .footer-divider { @apply h-[1px] w-full bg-main-green border-t-0; }
-  .copy { @apply py-5 mx-auto }
-
+  .footer-divider {
+    @apply h-[1px] w-full bg-main-green border-t-0;
+  }
+  .copy {
+    @apply py-5 mx-auto;
+  }
+  .service-description {
+    @apply text-sm sm:text-base text-center;
+  }
   @media (min-width: 992px) {
     .footer-content {
       @apply flex-row
