@@ -1,0 +1,69 @@
+---
+import { Image } from "@astrojs/image/components";
+import { SectionsLayout } from "@Layouts";
+import { BaseText, BaseTextTypes, BaseLink, BaseLinkProps } from "@BaseComponents";
+import { Contact } from "@Assets";
+---
+
+<SectionsLayout class="cta-section" id="contato">
+  <div class="container cta-sections">
+    <BaseText
+      tag={BaseTextTypes.TAGS.H2}
+      class="cta-title item-slide-up"
+      variation={BaseTextTypes.VARIATIONS.GRADIENT}
+    >
+      Transforme agora sua Ideia em um Projeto Digital de Sucesso
+    </BaseText>
+
+    <Image
+      class="image item-slide-up"
+      src={Contact}
+      alt="Imagem em versão animada mostrando uma mulher em um celular, dando a ideia de suporte para contato 24hrs." 
+    />
+
+    <BaseText
+      tag={BaseTextTypes.TAGS.P}
+      class="cta-paragraph item-slide-up"
+      variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
+    >
+      Vamos além do desenvolvimento digital. Estamos aqui para transformar
+      suas ideias em soluções digitais que impulsionam negócios. Seja na
+      criação de uma presença marcante online, na otimização da performance
+      ou na concretização de ideias inovadoras, estamos prontos para ajudar
+      a alcançar seus objetivos.
+    </BaseText>
+
+    <BaseLink
+      class="cta-btn item-slide-up"
+      href='mailto:lucas@mitchelsistemas.com.br'
+      variation={BaseLinkProps.VARIATIONS.ACTION}
+      target={BaseLinkProps.TARGETS.BLANK}
+    >
+      Fale Conosco
+    </BaseLink>
+  </div>
+</SectionsLayout>
+
+<style scoped>
+.cta-section { @apply bg-fade-black; }
+
+.cta-sections {
+  @apply grid place-items-center;
+}
+
+.cta-title {
+  @apply max-w-3xl mb-10 leading-normal text-center;
+}
+
+.image {
+  @apply max-w-[280px] sm:max-w-[400px]; 
+}
+
+.cta-paragraph {
+  @apply text-center mb-10 max-w-7xl;
+}
+
+.cta-btn {
+  @apply w-64 h-12;
+}
+</style>
