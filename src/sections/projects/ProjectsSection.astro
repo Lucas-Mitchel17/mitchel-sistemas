@@ -17,7 +17,7 @@ const section = [
     image: Precare,
     alt: "Foto da página inicial do site precare.ca",
     title: "Precare CA",
-    paragraph: "O website foi desenvolvido com WordPress, utilizando o page builder Oxygen e plugins como ACF e CPT UI para a eficiente organização dos tipos de posts. O foco do desenvolvimento esteve na otimização da performance SEO e na velocidade de carregamento. Uma transformação notável é evidenciada pelo aumento do SEO Score de 65 na versão anterior para 100 na nova versão do site. Destacamos a elaboração manual da página 'Healthcare Guides' no backend com PHP e no frontend com JQuery, proporcionando uma experiência única. A dinâmica de carregamento de posts, ativada pelo clique no menu ou no próprio post, revela um cuidado especial com a interatividade. Além disso, a funcionalidade de armazenamento local (localStorage) mantém o último item clicado, aprimorando a navegabilidade.",
+    paragraph: "O website foi desenvolvido com WordPress, utilizando o page builder Oxygen e plugins como ACF e CPT UI para a eficiente organização dos tipos de posts. O foco do desenvolvimento esteve na otimização da performance, SEO e na velocidade de carregamento. Uma transformação notável é evidenciada pelo aumento do SEO Score de 65 na versão anterior para 100 na nova versão do site. Destacamos a elaboração manual da página 'Healthcare Guides' no backend com PHP e no frontend com JQuery, proporcionando uma experiência única. A dinâmica de carregamento de posts, ativada pelo clique no menu ou no próprio post, revela um cuidado especial com a interatividade. Além disso, a funcionalidade de armazenamento local (localStorage) mantém o último item clicado, aprimorando a navegabilidade.",
     imageSide: "is-right-image",
     btnLink: "https://precare.ca/"
   },
@@ -33,10 +33,10 @@ const section = [
 ]
 ---
 <section class="projects-section">
-  <div class="px-6 mb-10">
+  <div class="pt-[200px] px-6 mb-10 container">
     <BaseText
       tag={BaseTextTypes.TAGS.H1}
-      class="pt-[200px] text-center"
+      class="text-center item-slide-up"
       variation={BaseTextTypes.VARIATIONS.GRADIENT}
     >
       Nossos Projetos
@@ -44,7 +44,7 @@ const section = [
   
     <BaseText
       tag={BaseTextTypes.TAGS.P}
-      class="projects-section-paragraph"
+      class="projects-section-paragraph item-slide-up"
       variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
     >
       Da concepção à execução, nossas <span class="is-text-gradient">soluções digitais</span> estão
@@ -63,7 +63,7 @@ const section = [
 
       <BaseLink
         slot="button"
-        class="project-btn"
+        class="project-btn item-fade"
         href={item.btnLink}
         variation={BaseLinkProps.VARIATIONS.ACTION}
         target={BaseLinkProps.TARGETS.BLANK}        
@@ -78,16 +78,23 @@ const section = [
 .projects-section {
   @apply 
   bg-gradient-to-b from-fade-black via-dark-blue to-fade-black
-  pb-24
   w-screen;
 }
 .is-project-section {
   @apply
-  border-[1px]
+  border-t-[1px]
+  border-r-[1px]
   border-solid
   border-main-green
-  rounded-3xl
-  p-10
+  rounded-tr-3xl
+  p-10;
+}
+.is-right-image.is-project-section {
+  @apply
+  border-r-[0px]
+  border-l-[1px]
+  rounded-tl-3xl
+  rounded-tr-[0];
 }
 .projects-section-paragraph {
   @apply text-center max-w-[1000px] w-full mx-auto pt-6 px-5;
@@ -98,7 +105,7 @@ const section = [
 
 .is-right-image .project-btn { @apply lg:ml-0; }
 .project-btn {
-  @apply mt-8 w-fit mx-auto lg:ml-auto;
+  @apply mt-8 w-fit mx-auto lg:mr-0;
 }
 
 </style>

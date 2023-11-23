@@ -36,8 +36,8 @@ const section = [
 
 ]
 ---
-<section class="services-section" id="services">
-  <div class="px-6">
+<section class="services-section" id="servicos">
+  <div class="px-6 item-slide-up">
     <BaseText
       tag={BaseTextTypes.TAGS.H2}
       class="pt-24 text-center"
@@ -67,7 +67,7 @@ const section = [
     >
       <Image class="image" src={item.image} alt={item.alt} />
 
-      <hr slot="divider" class="divider"></hr>
+      <hr slot="divider" class="divider item-slide-up"></hr>
     </TextImageSectionLayout>
   ))}
 </section>

@@ -1,1 +1,1 @@
-export { default as ProjectSection } from './ProjectsSection.astro';
+export { default as ProjectsSection } from './ProjectsSection.astro';
