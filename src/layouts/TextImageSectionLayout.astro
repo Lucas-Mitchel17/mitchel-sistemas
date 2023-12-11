@@ -15,16 +15,16 @@ const { class: className, variation, imageSide, title, paragraph } = Astro.props
 
 const dynamicClasses = [className, variation ? `is-${variation}` : ""];
 ---
-<SectionsLayout class="services container">
+<SectionsLayout class="services container item item-fade">
   <div class:list={[dynamicClasses, imageSide]}>
-    <div class="services-images item-slide-up">
+    <div class="services-images">
       <slot />
     </div>
 
     <div class="services-descriptions">
       <BaseText
         tag={BaseTextTypes.TAGS.H3}
-        class="service-title item-slide-up"
+        class="service-title"
         variation={BaseTextTypes.VARIATIONS.GRADIENT}
       >
         { title }
@@ -32,7 +32,7 @@ const dynamicClasses = [className, variation ? `is-${variation}` : ""];
 
       <BaseText
         tag={BaseTextTypes.TAGS.P}
-        class="service-description item-slide-up"
+        class="service-description"
         variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
       >
         { paragraph }

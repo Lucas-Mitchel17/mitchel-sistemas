@@ -9,32 +9,32 @@ import { BaseLinkProps } from "@Types";
 const footerItems = [
   {
     label: "Início",
-    href: "#inicio",
+    href: "/#inicio",
   },
   {
-    label: "Soluções",
-    href: "#solucoes",
+    label: "Serviços",
+    href: "#servicos",
   },
-  {
-    label: "Tecnologia",
-    href: "#tecnologia",
-  },
-  {
-    label: "Valores",
-    href: "#valores",
-  },
-];
-
-const footerItems2 = [
   {
     label: "Projetos",
     href: "/projetos",
   },
   {
-    label: "Blog",
-    href: "/blog",
+    label: "Contato",
+    href: "#contato",
   },
 ];
+
+// const footerItems2 = [
+//   {
+//     label: "Projetos",
+//     href: "/projetos",
+//   },
+//   {
+//     label: "Blog",
+//     href: "/blog",
+//   },
+// ];
 ---
 
 <footer>
@@ -81,14 +81,7 @@ const footerItems2 = [
       <div class="links-container">
         <ComposedLinks
           class="menu-item"
-          variation="mobile-links-container"
           links={footerItems}
-        />
-
-        <ComposedLinks
-          class="menu-item"
-          variation="mobile-links-container"
-          links={footerItems2}
         />
       </div>
 
@@ -174,7 +167,7 @@ const footerItems2 = [
   }
 
   .logo-section {
-    @apply mb-10 flex flex-col items-center gap-5;
+    @apply flex flex-col items-center gap-5;
   }
 
   .logo {
@@ -190,7 +183,7 @@ const footerItems2 = [
   }
 
   .menu-item {
-    @apply items-center text-pink-500;
+    @apply items-center grid grid-cols-2 gap-4; 
   }
 
   .social-btn-container {
@@ -218,12 +211,10 @@ const footerItems2 = [
   @media (min-width: 992px) {
     .footer-content {
       @apply flex-row
-      items-start
-      justify-evenly;
     }
 
     .logo-section {
-      @apply mb-0 items-start;
+      @apply items-start;
     }
 
     .links-container {

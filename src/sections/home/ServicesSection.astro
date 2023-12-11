@@ -1,7 +1,7 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { TextImageSectionLayout } from "@Layouts";
-import { BaseText, BaseTextTypes } from "@BaseComponents";
+import { BaseText, BaseTextTypes, BaseLink, BaseLinkProps } from "@BaseComponents";
 import { SitesPC, Apps, SEO, Support } from '@Assets';
 
 const section = [
@@ -25,6 +25,7 @@ const section = [
     title: "Design Elegante, Responsivo e Otimizado para SEO",
     paragraph: "Na Mitchel Sistemas, nosso design não é apenas visualmente cativante, mas também altamente funcional, proporcionando uma experiência excepcional em todos os dispositivos. Além disso, otimizamos o desempenho para carregamento rápido e navegação suave. Priorizamos o SEO em nossos projetos, garantindo que seu site ou aplicativo se destaque nos resultados de busca, alcançando um público mais amplo.",
     imageSide: "is-left-image",
+    btnLink: "https://wa.me/5531987698188",
   },
   {
     image: Support,
@@ -37,10 +38,10 @@ const section = [
 ]
 ---
 <section class="services-section" id="servicos">
-  <div class="px-6 item-slide-up">
+  <div class="px-6">
     <BaseText
       tag={BaseTextTypes.TAGS.H2}
-      class="pt-24 text-center"
+      class="pt-24 text-center item-slide-up"
       variation={BaseTextTypes.VARIATIONS.GRADIENT}
     >
       Nossos Serviços
@@ -48,7 +49,7 @@ const section = [
   
     <BaseText
       tag={BaseTextTypes.TAGS.P}
-      class="services-section-paragraph"
+      class="services-section-paragraph item-slide-up"
       variation={BaseTextTypes.VARIATIONS.PARAGRAPH}
     >
       Na Mitchel Sistemas, oferecemos uma gama abrangente de serviços
@@ -67,6 +68,16 @@ const section = [
     >
       <Image class="image" src={item.image} alt={item.alt} />
 
+      <BaseLink
+        slot="button"
+        class="services-btn item item-fade"
+        href={item.btnLink}
+        variation={BaseLinkProps.VARIATIONS.ACTION}
+        target={BaseLinkProps.TARGETS.BLANK}        
+      >
+        Entre em contato agora
+      </BaseLink>
+
       <hr slot="divider" class="divider item-slide-up"></hr>
     </TextImageSectionLayout>
   ))}
@@ -83,6 +94,10 @@ const section = [
 }
 .image {
   @apply max-w-md w-full
+}
+
+.services-btn {
+  @apply mt-12 w-fit ml-auto mr-0 uppercase h-12;
 }
 
 .divider {
